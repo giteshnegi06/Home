@@ -1,4 +1,6 @@
 import React from 'react'
+import { IoMdCart } from "react-icons/io";
+import { FaRegHeart } from "react-icons/fa";
 
 export default function Navbar() {
   return (
@@ -10,10 +12,12 @@ export default function Navbar() {
             <a href="#">About US</a>
             <a href="#">Contact</a>
         </ul>
-        <ul class ="space-x-8">
-            <a href="#">Cart</a>
-            <a href="#">WishList</a>
+        <ul class =" space-x-5 flex align-middle">
+            <a href="#" className=' text-[26px]' ><IoMdCart /></a>
+            <a href="#" className=' text-[24px] '><FaRegHeart /></a>
         </ul>
     </nav>
+
+    
   )
 }
