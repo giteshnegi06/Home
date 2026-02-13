@@ -3,21 +3,52 @@ import { IoMdCart } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 
 export default function Navbar() {
+  const navBar= [
+  {href:"/",name:"Home"},
+  {href:"/",name:"Services",
+    dropdown:[
+      {name:"Web Development", href:"/"},
+      {name:"Web Design", href:"/"},
+      {name:"SCO", href:"/"}
+    ]
+  },
+  {href:"/",name:"About",
+    dropdown:[
+      {name:"Company", href:"/"},
+      {name:"Terms", href:"/"},
+      {name:"Careers", href:"/"}
+    ]
+  },
+  {href:"/",name:"Contact"}
+  ]
+
+  const navIcon=[
+    {href:"/",icon:<IoMdCart />},
+    {href:"/",icon:<FaRegHeart />}
+  ]
   return (
-    <nav class="bg-black text-white h-15 px-20 flex justify-between items-center text-[18px]">
-        <h1><a href="#">Logo</a></h1>
-        <ul class =" space-x-20 ">
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">About US</a>
-            <a href="#">Contact</a>
+    <>
+      <nav className ="bg-black text-white h-15 px-20 flex justify-between items-center text-[18px] font-serif">
+        <h1><a href="#" className=' text-2xl'>WebFix</a></h1>
+        <ul className =" space-x-20 ">
+      {
+        navBar.map((v,i)=>(
+                <a key={i} href={v.href} className=' hover:text-green-700 hover:animate-pulse text-2xl'>{v.name}</a>
+        ))
+
+      }
+           
         </ul>
         <ul class =" space-x-5 flex align-middle">
-            <a href="#" className=' text-[26px]' ><IoMdCart /></a>
-            <a href="#" className=' text-[24px] '><FaRegHeart /></a>
-        </ul>
-    </nav>
+            {
+              navIcon.map((v,i)=>(
+                <a key={i} href={v.href} className=' text-[26px]' >{v.icon}</a>
+              ))
+            }
 
+        </ul>
+      </nav>
+    </>
     
   )
 }
